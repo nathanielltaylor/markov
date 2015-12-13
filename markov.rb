@@ -12,7 +12,7 @@ class MarkovChainGenerator
 
   def find_patterns
     @words.each_with_index do |word, index|
-      if index <= (@words.length - 2)
+      if index < (@words.length - 1)
         if !@frequencies.include?(word)
           @frequencies[word] = {}
           @frequencies[word][@words[index + 1]] = 1
