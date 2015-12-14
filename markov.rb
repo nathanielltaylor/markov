@@ -1,4 +1,11 @@
-require "pickup"
+def weighted_choice(hash)
+  total = hash.inject(0) { |sum, item_and_weight| sum += item_and_weight[1] }
+  target = rand(total)
+  hash.each do |item, weight|
+    return item if target <= weight
+    target -= weight
+  end
+end
 
 class MarkovChainGenerator
   attr_accessor :text, :words, :frequencies, :sequenced
@@ -37,12 +44,10 @@ class MarkovChainGenerator
     word_count.times do
       chain += " "
       probabilities = @frequencies[start]
-      selector = Pickup.new(probabilities)
-      next_word = selector.pick(1)
+      next_word = weighted_choice(probabilities)
       chain += next_word
       start = next_word
     end
     chain
   end
-
 end
