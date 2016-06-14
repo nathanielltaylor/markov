@@ -3,3 +3,5 @@ The Markov Chain Generator class uses a text-based Markov chain algorithm and an
 This can be used to generate filler text that looks and sounds reasonably close to real English, but it also often reveals interesting stylistic trends in the original text. For instance, the code in example.rb builds Markov chain generators using three famous novels as source text. The results of running the examples given for each of these, while not exactly sensical, should be stylistically and syntactically recognizable to anyone familiar with the works.
 
 Request a chain of at least 30 words for best results.
+
+Now available as a [gem](https://github.com/nathanielltaylor/MoreMarkov)
